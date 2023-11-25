@@ -92,15 +92,15 @@
     FILE* logFile = fopen("log.txt", "w");
 
     while (!exit) {
-        printf("Введите значение b1: ");
+        printf("Vvedite znachenie b1: ");
         scanf("%d", &b1);
         fprintf(logFile, "b1: %d\n", b1);
 
-        printf("Введите значение b2: ");
+        printf("Vvedite znachenie b2: ");
         scanf("%d", &b2);
         fprintf(logFile, "b2: %d\n", b2);
 
-        printf("Введите значение b3: ");
+        printf("Vvedite znachenie b3: ");
         scanf("%d", &b3);
         fprintf(logFile, "b3: %d\n", b3);
 
@@ -126,16 +126,15 @@
             result = (float) b3 / smallest;
         }
         else {
-            printf("Нет нечётных значений параметров\n\n");
-            fprintf(logFile, "Нет нечётных значений параметров\n\n");
+            printf("Net nechetnih znachenii parametrov\n\n");
+            fprintf(logFile, "Net nechetnih znachenii parametrov\n\n");
             continue;
         }
-
-        printf("Наименьший параметр: b%d\n", smallest);
-        printf("Результат: %.2f\n\n", result);
-
-        fprintf(logFile, "Наименьший параметр: b%d\n", smallest);
-        fprintf(logFile, "Результат: %.2f\n\n", result);
+        printf("Naimenshii parametr: b%d\n", smallest);
+        printf("Rezyltat: %.2f\n\n", result);
+        
+        fprintf(logFile, "Naimenshii parametr: b%d\n", smallest);
+        fprintf(logFile, "Rezyltat: %.2f\n\n", result);
     }
 
     fclose(logFile);
