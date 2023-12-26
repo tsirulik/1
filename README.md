@@ -83,71 +83,52 @@
 
 ```c
     #include <stdio.h>
-    #include <stdbool.h>
 
-    int main() {
+int main() {
+    // Объявление переменных
     int b1, b2, b3;
-    bool exit = false;
+    int minVal, minPos;
 
-    FILE* logFile = fopen("log.txt", "w");
+    // Ввод значений
+    printf("Введите число b1: ");
+    scanf("%d", &b1);
+    printf("Введите число b2: ");
+    scanf("%d", &b2);
+    printf("Введите число b3: ");
+    scanf("%d", &b3);
 
-    while (!exit) {
-        printf("Vvedite znachenie b1: ");
-        scanf("%d", &b1);
-        fprintf(logFile, "b1: %d\n", b1);
+    // Нахождение наименьшего значения и его позиции
+    minVal = b1;
+    minPos = 1;
 
-        printf("Vvedite znachenie b2: ");
-        scanf("%d", &b2);
-        fprintf(logFile, "b2: %d\n", b2);
-
-        printf("Vvedite znachenie b3: ");
-        scanf("%d", &b3);
-        fprintf(logFile, "b3: %d\n", b3);
-
-        // Проверка на выход из цикла
-        if (b1 == 0 && b2 == 0 && b3 == 0) {
-            exit = true;
-            continue;
-        }
-
-        int smallest;
-        float result;
-
-        if (b1 % 2 != 0 && b1 != 0) {
-            smallest = 1;
-            result = (float) b1 / smallest;
-        }
-        else if (b2 % 2 != 0 && b2 != 0) {
-            smallest = 2;
-            result = (float) b2 / smallest;
-        }
-        else if (b3 % 2 != 0 && b3 != 0) {
-            smallest = 3;
-            result = (float) b3 / smallest;
-        }
-        else {
-            printf("Net nechetnih znachenii parametrov\n\n");
-            fprintf(logFile, "Net nechetnih znachenii parametrov\n\n");
-            continue;
-        }
-        printf("Naimenshii parametr: b%d\n", smallest);
-        printf("Rezyltat: %.2f\n\n", result);
-        
-        fprintf(logFile, "Naimenshii parametr: b%d\n", smallest);
-        fprintf(logFile, "Rezyltat: %.2f\n\n", result);
+    if (b2 < minVal) {
+        minVal = b2;
+        minPos = 2;
     }
 
-    fclose(logFile);
+    if (b3 < minVal) {
+        minVal = b3;
+        minPos = 3;
+    }
+
+    // Проверка на четность или нечетность наименьшего значения
+    if (minVal % 2 == 0) {
+        // Наименьшее число четное
+        printf("Частное номера и значения наименьшего параметра: %d / %d = %d\n", minPos, minVal, minPos / minVal);
+    } else {
+        // Наименьшее число нечетное
+        printf("Номер наименьшего параметра: %d\n", minPos);
+    }
 
     return 0;
-    }
+}
+
 ```
 
 ### 2. Блок-схема.
 ![Блок-схема](13.png "Блок-схема")
 
 ### 3. Скриншоты результатов.
-![Вывод терминала](62.png "вывод терминала ")
-
+![Вывод терминала](555.png "вывод терминала ")
 
 
